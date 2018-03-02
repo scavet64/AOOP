@@ -1,17 +1,14 @@
 package com.scavetta.observerProject;
 
-import com.scavetta.observerProject.observerAPI.*;
+import com.scavetta.observerProject.observerAPI.Subscription;
 
-public class AlbumAnalyticsService implements IObserver {
+/**
+ * Very basic class to demonstrate the annotation based observer pattern
+ */
+public class AlbumAnalyticsService {
 
-    public void update(Object observableObject)
-    {
-        if(observableObject instanceof Album){
-            processNewAlbumListen((Album)observableObject);
-        }
-    }
-
-    private void processNewAlbumListen(Album album)
+    @Subscription
+    public void processNewAlbumListen(Album album)
     {
         System.out.println("Calculating analytics for " + album.getName());
         //do analytics on this album
